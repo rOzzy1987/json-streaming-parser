@@ -1,21 +1,55 @@
 {
   "name": "JsonStreamingParser",
-  "keywords": "json, streaming",
+  "keywords": ["json","streaming", "parser","lightweight", "large", "api"],
   "description": "A very memory efficient library to parse (large) JSON objects on embedded devices",
   "repository": {
     "type": "git",
-    "url": "https://github.com/squix78/json-streaming-parser.git"
+    "url": "https://github.com/rOzzy1987/json-streaming-parser.git"
   },
-  "authors": {
-    "name": "Daniel Eichhorn",
-    "url": "http://blog.squix.ch"
+  "authors": [
+    {
+      "name": "Mihály Rozovits",
+      "email": "rozovits.mihaly@gmail.com",
+      "url": "https://github.com/rOzzy1987"
+    },{
+      "name": "Maciej Dobrzanski",
+      "url": "https://github.com/dbnski"
+    },{
+      "name": "\"bigbug\"",
+      "url": "https://github.com/bigbug"
+    },{
+      "name": "Daniel Eichhorn",
+      "url": "http://blog.squix.ch"
+    }
+  ],
+  "maintainer": {
+    "name": "Mihály Rozovits",
+    "email": "rozovits.mihaly@gmail.com",
+    "url": "https://github.com/rOzzy1987"
   },
-  "version": "1.0.5",
-  "frameworks": "arduino",
+  "version": "1.0.0",
+  "frameworks": "*",
   "platforms": "*",
   "examples": [
-    "examples/JsonStreamingParser/*.ino",
-    "examples/JsonStreamingParser/*.cpp",
-    "examples/JsonStreamingParser/*.h"
+    {
+      "name": "Basic example",
+      "base": "examples/JsonStreamingParser",
+      "files": [
+          "JsonStreamingParser.ino",
+          "ExampleParser.h",
+          "ExampleParser.cpp"
+      ]
+    },{
+      "name": "Complex JSON file example",
+      "base": "examples/ComplexJsonFile",
+      "files": [
+          "ComplexJsonFile.h",
+          "ComplexJsonFile.cpp",
+          "ComplexJsonFile.ino",
+          "ExampleListener.h",
+          "ExampleListener.cpp",
+          "sample.json.h"
+      ]
+    }
   ]
 }

@@ -1,7 +1,8 @@
 # json-streaming-parser
 Arduino library for parsing potentially huge json streams on devices with scarce memory.
 
-This library is a port of Salsify's PHP based json streaming parser (https://github.com/salsify/jsonstreamingparser).
+This library is a fork of squix78's port (https://github.com/squix78/json-streaming-parser/archive/master.zip) 
+of Salsify's PHP based json streaming parser (https://github.com/salsify/jsonstreamingparser).
 
 ## Why yet another JSON parser?
 
@@ -27,10 +28,16 @@ DOM parser, the business logic becomes part of the parser.
 
 ## How to install
 
+### Arduino IDE
 Until the library becomes available in the Arduino IDE library manager you'll have to do a bit more work by hand.
 1) Download this library: https://github.com/squix78/json-streaming-parser/archive/master.zip
 2) Rename master.zip to json-streaming-parser.zip
 3) Open the zip file in the Arduino IDE from menu Sketch > Include Library > Add ZIP Library...
+
+### Platformio IDE
+There are 2 main methods to install:
+1) Using the library manager of platformio add the library to the project
+2) Add `rozzy1987/JsonStreamingParser@^1.0.0` to `lib_deps` key in your project's `platformio.ini` file 
 
 ## How to use
 
@@ -55,8 +62,7 @@ This code is available under the MIT license, which basically means that you can
 
 ## Credits
 
-First of all I'd like to thank Salsify for making their PHP parser available to the public. You find their repository here: https://github.com/salsify/jsonstreamingparser
-
-Then I'd like to thank my employer Netcetera (https://github.com/netceteragroup) to let us hackers go twice a year to the CodeCamp and work on software projects like this one.
-
-And last but not least I'd like to thank my wife that she led me spend three days away from the family hacking in the wonderful mountains of Berne.
+- @Salsify (original PHP implementation, https://github.com/salsify)
+- @squix78 (original c++ port, https://github.com/squix78)
+- Maciej Dobrzanski (bufixes, https://github.com/dbnski)
+- @bigbug (bugfixes, "https://github.com/bigbug")
