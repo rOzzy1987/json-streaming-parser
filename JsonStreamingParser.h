@@ -25,7 +25,7 @@ See more at http://blog.squix.ch and https://github.com/squix78/json-streaming-p
 
 #pragma once
 
-#include <Arduino.h>
+#include "crossplatform.h"
 #include "JsonListener.h"
 
 #define STATE_START_DOCUMENT     0
