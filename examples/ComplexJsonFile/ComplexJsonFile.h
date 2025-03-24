@@ -1,6 +1,7 @@
 #include "sample.json.h"
 #include "JsonStreamingParser.h"
 #include "ExampleListener.h"
+#include <string.h>
 
 void setup() {
     ExampleListener listener = ExampleListener();
