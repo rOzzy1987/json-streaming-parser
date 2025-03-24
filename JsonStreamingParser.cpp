@@ -68,6 +68,8 @@ void JsonStreamingParser::parse(char c) {
     case STATE_IN_ARRAY:
       if (c == ']') {
         endArray();
+      } else if (c == '{') {
+        startObject();
       } else {
         startValue(c);
       }
