@@ -49,8 +49,8 @@ void JsonStreamingParser::parse(char c) {
     // http://stackoverflow.com/questions/16042274/definition-of-whitespace-in-json
     if ((c == ' ' || c == '\t' || c == '\n' || c == '\r')
         && !(state == STATE_IN_STRING || state == STATE_UNICODE || state == STATE_START_ESCAPE
-            || state == STATE_IN_NUMBER || state == STATE_START_DOCUMENT)) {
-      return;
+            || state == STATE_IN_NUMBER)) {
+      return; 
     }
     switch (state) {
     case STATE_IN_STRING:
