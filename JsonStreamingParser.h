@@ -63,7 +63,7 @@ class JsonStreamingParser {
 
     boolean doEmitWhitespace = false;
     // fixed length buffer array to prepare for c code
-    unsigned char buffer[BUFFER_MAX_LENGTH];
+    char buffer[BUFFER_MAX_LENGTH];
     int bufferPos = 0;
 
     char unicodeEscapeBuffer[10];
@@ -122,8 +122,10 @@ class JsonStreamingParser {
     void endUnicodeSurrogateInterstitial();
 
     boolean doesCharArrayContain(unsigned char myArray[], int length, unsigned char c);
+    boolean doesCharArrayContain(char myArray[], int length, unsigned char c);
 
     int getHexArrayAsDecimal(unsigned char hexArray[], int length);
+    int getHexArrayAsDecimal(char hexArray[], int length);
 
     void processUnicodeCharacter(unsigned char c);
 
@@ -133,6 +135,7 @@ class JsonStreamingParser {
 
   public:
     JsonStreamingParser();
+    void parse(char c);
     void parse(unsigned char c);
     void setListener(JsonListener* listener);
     void reset();

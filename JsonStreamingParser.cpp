@@ -44,7 +44,8 @@ void JsonStreamingParser::setListener(JsonListener* listener) {
   myListener = listener;
 }
 
-void JsonStreamingParser::parse(unsigned char c) {
+void JsonStreamingParser::parse(char c) { return parse((unsigned char)c); }
+  void JsonStreamingParser::parse(unsigned char c) {
     //System.out.print(c);
     // valid whitespace characters in JSON (from RFC4627 for JSON) include:
     // space, horizontal tab, line feed or new line, and carriage return.
@@ -395,7 +396,10 @@ boolean JsonStreamingParser::isHexCharacter(unsigned char c) {
     return (c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F');
   }
 
-int JsonStreamingParser::getHexArrayAsDecimal(unsigned char hexArray[], int length) {
+  int JsonStreamingParser::getHexArrayAsDecimal(char hexArray[], int length) {
+    return getHexArrayAsDecimal((unsigned char*) hexArray, length);
+  }
+    int JsonStreamingParser::getHexArrayAsDecimal(unsigned char hexArray[], int length) {
     int result = 0;
     for (int i = 0; i < length; i++) {
       unsigned char current = hexArray[length - i - 1];
@@ -412,14 +416,17 @@ int JsonStreamingParser::getHexArrayAsDecimal(unsigned char hexArray[], int leng
     return result;
   }
 
-boolean JsonStreamingParser::doesCharArrayContain(unsigned char myArray[], int length, unsigned char c) {
-    for (int i = 0; i < length; i++) {
-      if (myArray[i] == c) {
-        return true;
-      }
-    }
-    return false;
+  boolean JsonStreamingParser::doesCharArrayContain(char myArray[], int length, unsigned char c) {
+    return doesCharArrayContain((unsigned char*)myArray, length, c);
   }
+  boolean JsonStreamingParser::doesCharArrayContain(unsigned char myArray[], int length, unsigned char c) {
+      for (int i = 0; i < length; i++) {
+        if (myArray[i] == c) {
+          return true;
+        }
+      }
+      return false;
+    }
 
 void JsonStreamingParser::endUnicodeSurrogateInterstitial() {
     char unicodeEscape = unicodeEscapeBuffer[unicodeEscapeBufferPos - 1];
