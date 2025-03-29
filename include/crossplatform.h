@@ -39,6 +39,8 @@ class ArduinoStream {
         virtual int peek() {return 0;}
 };
 
+void delay(int ms){}
+
 typedef ArduinoString String;
 typedef ArduinoStream Stream;
 

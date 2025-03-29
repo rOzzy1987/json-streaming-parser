@@ -51,8 +51,15 @@ void JsonStreamingParser::setListener(JsonListener* listener) {
 
 void JsonStreamingParser::parse(char c) { return parse((unsigned char)c); }
 void JsonStreamingParser::parse(Stream *stream) {
-  while (stream->available() > 0) {
-    parse((char)stream->read());
+  bool done = false;
+  while (!done) {
+    done = stream->available() == 0;
+    if (done) { // Let's give some time for the buffer to fill
+      delay(100);
+      done = stream->available() == 0;
+    }
+    if(!done)
+      parse((char)stream->read());
   }
 }
   void JsonStreamingParser::parse(unsigned char c) {
